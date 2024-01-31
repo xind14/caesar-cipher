@@ -1,6 +1,6 @@
 
 import re
-from corpus_loader import word_list, name_list
+from caesar_cipher.corpus_loader import word_list, name_list
 
 
 def count_words(text):
