@@ -1,3 +1,9 @@
+"""
+This code block sets up NLTK (Natural Language Toolkit) and downloads the "words" and "names" corpora
+from the NLTK library. These corpora are used to check whether a given word is a valid English word
+or a common name.
+"""
+
 import ssl
 import nltk
 
