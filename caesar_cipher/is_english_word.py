@@ -1,4 +1,3 @@
-
 import re
 from caesar_cipher.corpus_loader import word_list, name_list
 
@@ -14,10 +13,3 @@ def count_words(text):
         if word.lower() in word_list or word in name_list:
             word_count += 1
     return word_count
-
-
-# for phrase in candidates:
-#     word_count = count_words(phrase)
-#     percentage = int(word_count / len(phrase.split()) * 100)
-#     if percentage > 50:
-#         print(phrase, percentage)

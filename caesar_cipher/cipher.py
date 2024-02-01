@@ -1,6 +1,5 @@
 from caesar_cipher.is_english_word import count_words
 
-
 def encrypt(plaintext, shift):
     encrypted_text = ""
 
@@ -24,21 +23,18 @@ def encrypt(plaintext, shift):
 def decrypt(encoded, shift):
     return encrypt(encoded, -shift)
 
+def crack(encoded):
+    for shift in range(26):
+        plaintext = decrypt(encoded, shift)
+        word_count = len(plaintext.split())
+        if count_words(plaintext) == word_count:
+            return plaintext
 
-# if __name__ == "__main__":
-#     pins = [
-#         "AAAA",
-#         "BBBB",
-#         "ABCD",
-#         "ABAB",
-#     ]
+    return ''
 
-#     for i, pin in enumerate(pins):
-#         shift = i + 1
-#         print("plain pin", pin)
-#         print("shift by", shift)
-#         encrypted_pin = encrypt(pin, shift)
-#         print("encrypted_pin", encrypted_pin)
-#         decrypted_pin = decrypt(encrypted_pin, shift)
-#         print("decrypted_pin", decrypted_pin)
-#         print()
+
+if __name__ == "__main__":
+    cipher = encrypt("Is this wOrKINg. AYO 28? Testing", 7)
+    print(cipher)
+    print (decrypt(cipher, 7))
+    crack(cipher)
