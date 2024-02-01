@@ -2,9 +2,17 @@ from caesar_cipher.is_english_word import count_words
 # from is_english_word import count_words
 
 def encrypt(plaintext, shift):
+    """
+    Encrypts a given plaintext using the Caesar Cipher algorithm.
+
+    Args:
+        plaintext (str): The original text to be encrypted.
+        shift (int): The numeric shift used for encryption.
+
+    Returns:
+        str: The encrypted text.
+    """
     encrypted_text = ""
-
-
     number_of_characters = 26
 
     for char in plaintext:
@@ -22,9 +30,28 @@ def encrypt(plaintext, shift):
 
 
 def decrypt(encoded, shift):
+    """
+    Decrypts an encrypted text using the Caesar Cipher algorithm.
+
+    Args:
+        encoded (str): The encrypted text to be decrypted.
+        shift (int): The numeric shift used for decryption.
+
+    Returns:
+        str: The decrypted text.
+    """
     return encrypt(encoded, -shift)
 
 def crack(encoded):
+    """
+    Crack an encrypted text 
+
+    Args:
+        encoded (str): The encrypted text to be cracked.
+
+    Returns:
+        str: The cracked plaintext, or an empty string if unsuccessful.
+    """
     for shift in range(26):
         plaintext = decrypt(encoded, shift)
         word_count = len(plaintext.split())
